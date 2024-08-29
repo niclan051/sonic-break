@@ -35,7 +35,7 @@ public abstract class SonicBoomTaskMixin {
         serverWorld.playSound(
                 null,
                 BlockPos.ofFloored(center),
-                SoundEvent.of(SoundEvents.ENTITY_ZOMBIE_BREAK_WOODEN_DOOR.getId()),
+                SoundEvent.of(SoundEvents.ENTITY_WITHER_BREAK_BLOCK.getId()),
                 SoundCategory.HOSTILE
                              );
     }
