@@ -1,0 +1,30 @@
+{
+	"schemaVersion": 1,
+	"id": "sonic-break",
+	"version": "${version}",
+	"name": "Sonic Break",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"niclan"
+	],
+	"contact": {
+		"sources": "https://github.com/niclan051/sonic-break"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/sonic-break/icon.png",
+	"environment": "*",
+	"entrypoints": {
+	},
+	"mixins": [
+		"sonic-break.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.3",
+		"minecraft": "~1.21",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}

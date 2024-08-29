@@ -1,0 +1,11 @@
+{
+	"required": true,
+	"package": "me.niclan.sonicbreak.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"mixins": [
+		"SonicBoomTaskMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}
