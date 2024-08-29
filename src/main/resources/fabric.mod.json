@@ -3,7 +3,7 @@
 	"id": "sonic-break",
 	"version": "${version}",
 	"name": "Sonic Break",
-	"description": "Ever wanted wardens to ",
+	"description": "This is an example description! Tell everyone what your mod is about!",
 	"authors": [
 		"niclan"
 	],
@@ -22,8 +22,5 @@
 		"fabricloader": ">=0.16.3",
 		"minecraft": "~1.21",
 		"java": ">=21"
-	},
-	"suggests": {
-		"another-mod": "*"
 	}
 }
