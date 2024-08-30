@@ -32,10 +32,10 @@ public abstract class SonicBoomTaskMixin {
         BlockPos.iterate(BlockPos.ofFloored(box.getMinPos()), BlockPos.ofFloored(box.getMaxPos())).forEach(pos -> {
             double squaredDistance = pos.getSquaredDistance(source);
             TagKey<Block> tag = SonicBreak.SONIC_BOOM_IMMUNE_START;
-            if (squaredDistance > 3*3) {
+            if (squaredDistance > 7*7) {
                 tag = SonicBreak.SONIC_BOOM_IMMUNE_MIDDLE;
             }
-            if (squaredDistance > 5*5) {
+            if (squaredDistance > 12*12) {
                 tag = SonicBreak.SONIC_BOOM_IMMUNE_END;
             }
 
