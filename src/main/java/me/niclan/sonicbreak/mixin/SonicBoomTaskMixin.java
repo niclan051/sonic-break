@@ -2,10 +2,11 @@ package me.niclan.sonicbreak.mixin;
 
 import com.llamalad7.mixinextras.sugar.Local;
 import me.niclan.sonicbreak.SonicBreak;
+import net.minecraft.block.Block;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.brain.task.SonicBoomTask;
 import net.minecraft.entity.mob.WardenEntity;
-import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.registry.tag.TagKey;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
@@ -24,12 +25,21 @@ public abstract class SonicBoomTaskMixin {
                                               target = "Lnet/minecraft/server/world/ServerWorld;spawnParticles" +
                                                        "(Lnet/minecraft/particle/ParticleEffect;DDDIDDDD)I"))
     private static void breakBlocks(WardenEntity wardenEntity, ServerWorld serverWorld, LivingEntity target,
-                                    CallbackInfo ci, @Local(ordinal = 3) Vec3d center) {
+                                    CallbackInfo ci, @Local(ordinal = 0) Vec3d source,
+                                    @Local(ordinal = 3) Vec3d center) {
         double radius = 3;
         Box box = Box.from(center).expand(radius);
         BlockPos.iterate(BlockPos.ofFloored(box.getMinPos()), BlockPos.ofFloored(box.getMaxPos())).forEach(pos -> {
-            if (pos.getSquaredDistance(center) <= radius * radius &&
-                !serverWorld.getBlockState(pos).isIn(SonicBreak.SONIC_BOOM_IMMUNE)) {
+            double squaredDistance = pos.getSquaredDistance(source);
+            TagKey<Block> tag = SonicBreak.SONIC_BOOM_IMMUNE_START;
+            if (squaredDistance > 3*3) {
+                tag = SonicBreak.SONIC_BOOM_IMMUNE_MIDDLE;
+            }
+            if (squaredDistance > 5*5) {
+                tag = SonicBreak.SONIC_BOOM_IMMUNE_START;
+            }
+
+            if (pos.getSquaredDistance(center) <= radius * radius && !serverWorld.getBlockState(pos).isIn(tag)) {
                 serverWorld.breakBlock(pos, true);
             }
         });

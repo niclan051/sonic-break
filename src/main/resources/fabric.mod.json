@@ -16,6 +16,9 @@
 	"entrypoints": {
 		"main": [
 			"me.niclan.sonicbreak.SonicBreak"
+		],
+		"fabric-datagen": [
+			"me.niclan.sonicbreak.SonicBreakDatagen"
 		]
 	},
 	"mixins": [

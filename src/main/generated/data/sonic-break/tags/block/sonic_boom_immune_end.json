@@ -1,0 +1,24 @@
+{
+  "values": [
+    {
+      "id": "#sonic-break:sonic_boom_immune_middle",
+      "required": false
+    },
+    {
+      "id": "#c:stones",
+      "required": false
+    },
+    {
+      "id": "#c:cobblestones",
+      "required": false
+    },
+    {
+      "id": "#c:ores",
+      "required": false
+    },
+    {
+      "id": "#minecraft:dampens_vibrations",
+      "required": false
+    }
+  ]
+}
