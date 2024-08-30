@@ -36,7 +36,7 @@ public abstract class SonicBoomTaskMixin {
                 tag = SonicBreak.SONIC_BOOM_IMMUNE_MIDDLE;
             }
             if (squaredDistance > 5*5) {
-                tag = SonicBreak.SONIC_BOOM_IMMUNE_START;
+                tag = SonicBreak.SONIC_BOOM_IMMUNE_END;
             }
 
             if (pos.getSquaredDistance(center) <= radius * radius && !serverWorld.getBlockState(pos).isIn(tag)) {
